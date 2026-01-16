@@ -46,10 +46,13 @@ from sklearn.ensemble import RandomForestRegressor
 forest=RandomForestRegressor()
 forest.fit(X_train,Y_train)
 print(forest.score(X_test,Y_test))
+import joblib
+joblib.dump(model, "house_model.pkl", compress=3)
 
 import pickle
 with open("house_model.pkl","wb") as f:
   pickle.dump(forest,f)
 
 print("Model saved successfully!!")
+
 
